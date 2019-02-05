@@ -1,7 +1,7 @@
 
 <div class="card">
     <table class="table table-striped table-bordered rounded">
-        
+
         <thead class="">
             <tr>
                 <th class="p-5">Titulo</th>
@@ -15,8 +15,16 @@
                 <td>{{$post->user->name}}</td>
             </tr>
         @endforeach
+
         </tbody>
+
     </table>
+
+    <!--PAGINACIÓN-->
+    <div class="d-flex justify-content-center">
+        {{$posts->links()}}
+    </div>
+
 
 
 </div>

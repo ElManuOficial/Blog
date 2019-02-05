@@ -22,9 +22,31 @@
                         @csrf
                         <input type="submit" class="btn btn-danger btn-lg border-3" value="Eliminar">
                     </form>
-                    <!--BOTON PARA DARLE LIKES-->
-                    <a class="btn btn-info btn-xs d-inline h-100" href="" role="button">LIKES</a>
-                    <!--<a href="/post-delete/{{$post->id}}" class="btn btn-danger btn-lg" role="button">Eliminar</a>-->
+
+                    @if ($id_user==Auth::id())
+                        <!--ESTE USUARIO YA LE DIO LIKE SI PULSA AQUI DEBERIA DAR DISLIKE-->
+                        <form action="/post-dis-like/{{$post->id}}" method="post" class="d-inline">
+                            @csrf
+                                <button type="submit" class="btn btn-info btn-lg border-3">
+                                        <i class="fas fa-heart hasLike d-inline"></i>
+                                        {{$likes->count()}}
+                                </button>
+                        </form>
+                    @else
+                        <!--ESTE USUARIO NO LE HA DADO LIKE SI PULSA AQUI DEBERIA DAR LIKE-->
+                        <form action="/post-like/{{$post->id}}" method="post" class="d-inline">
+                            @csrf
+                                <button type="submit" class="btn btn-info btn-lg border-3">
+                                        <i class="fas fa-heart d-inline"></i>
+                                        {{$likes->count()}}
+                                </button>
+                        </form>
+
+                    @endif
+                    <!--FIN REVISAR ESTE CODIGO -->
+
+
+
                 </div>
 
 

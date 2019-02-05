@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Like;
 
 class Post extends Model
 {
@@ -16,5 +17,10 @@ class Post extends Model
 
     }
 
+    public function likes(){
+
+        return $this->hasMany(Like::class);
+
+    }
 
 }

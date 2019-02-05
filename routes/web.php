@@ -34,3 +34,7 @@ Route::get('/post/{id}','PostController@showPost');
 Route::get('/post-edit/{id}','PostController@editPost');
 Route::post('/post-update/{id}','PostController@updatePost');
 Route::post('/post-delete/{id}','PostController@deletePost');
+/*likes*/
+Route::post('/post-like/{id}','LikeController@createlike');//dar like
+Route::post('/post-dis-like/{id}','LikeController@destroylike');//dar like
+
