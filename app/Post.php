@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Like;
-
+use App\PostImage;
 class Post extends Model
 {
     //
@@ -21,6 +21,11 @@ class Post extends Model
 
         return $this->hasMany(Like::class);
 
+    }
+
+    public function images(){
+
+        return $this->hasMany(PostImage::class);
     }
 
 }

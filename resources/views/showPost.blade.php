@@ -5,6 +5,11 @@
 
 
     <div class="jumbotron jumbotron-fluid" style="background-color:transparent">
+        @if (session()->has('message'))
+
+            <p class="text-success">{{session()->get('message')}}</p>
+
+        @endif
         <div class="container">
             <h1 class="display-3">{{$post->title}}</h1>
             <p class="lead">Creado el: {{date_format(new DateTime($post->created_at),'d-m-y')}} por: {{$post->user->name}} </p>
@@ -44,7 +49,13 @@
 
                     @endif
                     <!--FIN REVISAR ESTE CODIGO -->
-
+                    <form action="/post-image/{{$post->id}}" method="post" class="d-inline" enctype="multipart/form-data">
+                        @csrf
+                            <input type="file" name="image" id="" class="">
+                            <button type="submit" class="btn btn-info btn-md border-3">
+                                   Enviar
+                            </button>
+                    </form>
 
 
                 </div>

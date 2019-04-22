@@ -38,3 +38,9 @@ Route::post('/post-delete/{id}','PostController@deletePost');
 Route::post('/post-like/{id}','LikeController@createlike');//dar like
 Route::post('/post-dis-like/{id}','LikeController@destroylike');//dar like
 
+
+
+/*Imagenes en los Posts*/
+Route::post('/post-image/{id}','PostImageController@createPostImage');//subir imagen
+
+
